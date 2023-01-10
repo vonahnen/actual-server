@@ -38,6 +38,17 @@ docker build -t actual-server . -f Dockerfile.buster
 docker run -p 5006:5006 actual-server
 ```
 
+For Raspberry Pi's `~/.bashrc` to start on boot:
+
+```
+export ACTUAL_BUDGET_HOME=/home/pi/actualbudget
+export ACTUAL_BUDGET_SERVER=$ACTUAL_BUDGET_HOME/actual-server
+export ACTUAL_BUDGET_DATA=$ACTUAL_BUDGET_HOME/data
+
+cd $ACTUAL_BUDGET_SERVER_HOME
+docker run -p 5006:5006 -v $ACTUAL_BUDGET_DATA:/data actual-server
+```
+
 ## Deploying
 
 You should deploy your server so it's always running. We recommend [fly.io](https://fly.io) which makes it incredibly easy and provides a free plan.
