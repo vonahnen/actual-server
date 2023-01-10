@@ -4,7 +4,7 @@ services:
     container_name: actual_server
     build:
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.buster
     ports:
       - "5006:5006"
     volumes:
